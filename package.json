@@ -1,0 +1,30 @@
+{
+    "name": "backend-progirls-user-management-application",
+    "version": "1.0.0",
+    "description": "Backend for my application using Node.js, Express, MongoDB, and JWT",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js",
+        "test": "echo \"No tests specified\" && exit 0"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.20.1",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^7.8.6",
+        "morgan": "^1.10.0"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.1",
+        "nodemon": "^2.0.22"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "author": "Danielle Costa, Karolline Falcão, Laura Cardoso, Sabrinne Sousa",
+    "license": "MIT"
+}
