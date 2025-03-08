@@ -26,5 +26,6 @@
         "node": ">=16.0.0"
     },
     "author": "Danielle Costa, Karolline Falcão, Laura Cardoso, Sabrinne Sousa",
-    "license": "MIT"
+    "license": "MIT",
+    "keywords": []
 }
