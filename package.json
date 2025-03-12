@@ -9,18 +9,21 @@
         "test": "echo \"No tests specified\" && exit 0"
     },
     "dependencies": {
+        "@parse/node-apn": "^6.4.3",
+        "bcrypt": "^5.1.1",
         "bcryptjs": "^2.4.3",
-        "body-parser": "^1.20.1",
+        "body-parser": "^1.20.3",
         "cors": "^2.8.5",
         "dotenv": "^16.4.7",
         "express": "^4.21.2",
         "jsonwebtoken": "^8.5.1",
         "mongoose": "^7.8.6",
-        "morgan": "^1.10.0"
+        "mongoose-sequence": "^6.0.1",
+        "morgan": "^1.10.0",
+        "parse-server": "^8.0.0"
     },
     "devDependencies": {
-        "eslint": "^8.57.1",
-        "nodemon": "^2.0.22"
+        "eslint": "^8.57.1"
     },
     "engines": {
         "node": ">=16.0.0"
