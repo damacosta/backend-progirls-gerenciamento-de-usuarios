@@ -29,6 +29,7 @@ async function login(req, res, next) {
     if (passwordMatch) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
       return res.status(200).json({ message: 'Login realizado com sucesso!', token: token });
+  
     } else {
       return res.status(401).send('Senha incorreta.');
     }
