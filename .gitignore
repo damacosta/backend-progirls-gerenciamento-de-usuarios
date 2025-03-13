@@ -6,6 +6,8 @@
 
 # Arquivos de log
 *.log
+logs/*
+
 
 # Arquivos de ambiente
 .env

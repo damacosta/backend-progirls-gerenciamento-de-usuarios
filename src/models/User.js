@@ -1,26 +1,24 @@
 const mongoose = require('mongoose');
-const bcrypt = require('bcrypt');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const userSchema = new mongoose.Schema({
     id: {
-        type: Number, 
-        unique: true 
+        type: Number,
     },
     cpf: {
         type: String,
         required: true,
         trim: true,
     },
-    name: {
+    nameComplete: {
         type: String,
         required: true,
         trim: true,
     },
     situation: {
         type: String,
-        enum: ['Active', 'Inactive'],
-        default: 'Active',
+        enum: ['Ativo', 'Inativo'],
+        default: 'Ativo',
     },
     birthDate: {
         type: Date,
@@ -52,12 +50,6 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.plugin(AutoIncrement, { inc_field: 'id' });
-
-userSchema.pre('save', async function (next) {
-    if (!this.isModified('password')) return next();
-    this.password = await bcrypt.hash(this.password, 10);
-    next();
-});
 
 const User = mongoose.model('User', userSchema);
 
