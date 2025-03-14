@@ -5,8 +5,6 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 
 async function register(req, res, next) {
-  console.log("Request Body:", req.body);
-
   try {
     const { cpf, nameComplete, situation, birthDate, email, phone, admissionDate, password } = req.body;
     const hashedPassword = await authService.hashPassword(password);
@@ -19,6 +17,7 @@ async function register(req, res, next) {
 }
 
 async function login(req, res, next) {
+  console.log("Request Body:", req.body);
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
