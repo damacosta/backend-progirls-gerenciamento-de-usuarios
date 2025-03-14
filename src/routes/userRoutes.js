@@ -13,18 +13,18 @@ router.get('/users', async (req, res) => {
 
 router.post('/users', async (req, res) => {
     try {
-        const { cpf, name, email, password, birthDate, phone, admissionDate } = req.body;
+        const { cpf, nameComplete, email, password, birthDate, phone, admissionDate } = req.body;
 
         const existingUser  = await User.findOne({ cpf });
         if (existingUser ) {
             return res.status(409).json({ error: 'CPF já cadastrado' });
         }
 
-        if (!cpf || !name || !email || !password || !birthDate || !phone || !admissionDate) {
+        if (!cpf || !nameComplete || !email || !password || !birthDate || !phone || !admissionDate) {
             return res.status(400).json({ error: 'Todos os campos são obrigatórios' });
         }
 
-        const user = new User({ cpf, name, email, password, birthDate, phone, admissionDate });
+        const user = new User({ cpf, nameComplete, email, password, birthDate, phone, admissionDate });
         await user.save();
         res.status(201).json({ message: 'Usuário cadastrado com sucesso' });
     } catch (error) {
