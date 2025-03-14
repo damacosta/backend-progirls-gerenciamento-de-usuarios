@@ -4,8 +4,8 @@ exports.getUsers = async () => {
     return await User.find();
 };
 
-exports.createUser = async (cpf, name, email) => {
-    const user = new User({ cpf, name, email });
+exports.createUser = async (cpf, nameComplete, email) => {
+    const user = new User({ cpf, nameComplete, email });
     return await user.save();
 };
 
