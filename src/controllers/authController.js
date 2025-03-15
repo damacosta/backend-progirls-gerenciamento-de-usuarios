@@ -20,18 +20,32 @@ async function login(req, res, next) {
   console.log("Request Body:", req.body);
   try {
     const { email, password } = req.body;
+    console.log("Email:", email);
+    console.log("Password:", password);
+
     const user = await User.findOne({ email });
+    console.log("User:", user);
+
     if (!user) {
       return res.status(401).send('Usuário não encontrado.');
     }
-    const passwordMatch = await authService.comparePasswords(password, user.password);
+    const hashedPassword = await authService.hashPassword(user.password);
+    console.log("Password:", password);
+    console.log("User.Password:", user.password);
+    const passwordMatch = await authService.comparePasswords(password, hashedPassword);
+    console.log("Password Match:", passwordMatch);
+    
+
     if (passwordMatch) {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+      console.log("Token:", token);
+
       return res.status(200).json({ message: 'Login realizado com sucesso!', token: token });
     } else {
       return res.status(401).send('Senha incorreta.');
     }
   } catch (error) {
+    console.error("Erro no login:", error);
     next(error);
   }
 }
